@@ -32,9 +32,22 @@ function App() {
     <div className="App">
       <ul>
         {articles.map((article, index) => (
-          <li className="article" key={index}>
-            {article.author}
-          </li>
+          <articles className="stories">
+            <div className="story-container">
+              <div className="story-title">
+                <span>{article.title}</span>
+                <a>
+                  {article.url}
+                  </a>
+              </div>
+              <div className="story-data">
+                <span>{article.points}</span>
+                <span>{article.author}</span>
+                <span>{article.num_comments}</span>
+                <span>{article.created_at}</span>
+              </div>
+            </div>
+          </articles>
         ))}
       </ul>
     </div>
