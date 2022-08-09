@@ -9,6 +9,7 @@ function App() {
     const data = await response.json();
 
     setArticles(data.results);
+    
   }
 
   useEffect(() => {
