@@ -5,7 +5,7 @@ function App() {
   const [articles, setArticles] = useState([]);
 
   async function getArticles() {
-    const response = await fetch("https://hn.algolia.com/api/v1/items");
+    const response = await fetch("https://hn.algolia.com/api/v1/search?query=story");
     const data = await response.json();
 
     setArticles(data.results);
