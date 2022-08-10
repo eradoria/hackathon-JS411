@@ -29,7 +29,6 @@ ul {
   min-height: 40px;
 }
 
-
 .story-container {
   /* border: solid red 1px; */
   display: flex;
@@ -40,19 +39,19 @@ ul {
   display: flex;
   flex-direction: row;
   margin: 4px;
+  font-style:normal;
 }
 
-
-.stories .story-title a{
+.stories .story-title a {
   padding-left: 16px;
   font-size: 12px;
 }
 
-.story-data{
+.story-data {
   font-size: 12px;
   align-items: flex-start;
 }
 
-.story-data span{
+.story-data span {
   padding-left: 16px;
 }
