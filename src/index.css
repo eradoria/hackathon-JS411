@@ -57,13 +57,10 @@ ul {
 
 header {
   height: 60px;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
   align-items: center;
   background: #ff742b;
   height: auto;
-  padding: 4px;
   position: relative;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -72,7 +69,7 @@ header {
 input {
   border-radius: 0;
   border: none;
-  height: 42px;
+  height: 100%;
   width: 100%;
   box-shadow: none;
   padding: 16px 144px 16px 54px;
