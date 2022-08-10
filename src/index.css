@@ -29,7 +29,6 @@ ul {
   min-height: 40px;
 }
 
-
 .story-container {
   /* border: solid red 1px; */
   display: flex;
@@ -42,17 +41,39 @@ ul {
   margin: 4px;
 }
 
-
-.stories .story-title a{
+.stories .story-title a {
   padding-left: 16px;
   font-size: 12px;
 }
 
-.story-data{
+.story-data {
   font-size: 12px;
   align-items: flex-start;
 }
 
-.story-data span{
+.story-data span {
   padding-left: 16px;
+}
+
+header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #ff742b;
+  height: auto;
+  position: relative;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+input {
+  border-radius: 0;
+  border: none;
+  height: 100%;
+  width: 100%;
+  box-shadow: none;
+  padding: 16px 144px 16px 54px;
+  font-weight: 300;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.75);
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Header from "./components/header"
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -30,15 +31,14 @@ function App() {
 
   return (
     <div className="App">
+   <Header></Header>
       <ul>
         {articles.map((article, index) => (
           <articles className="stories">
             <div className="story-container">
               <div className="story-title">
                 <span>{article.title}</span>
-                <a>
-                  {article.url}
-                  </a>
+                <a>{article.url}</a>
               </div>
               <div className="story-data">
                 <span>{article.points}</span>
@@ -55,3 +55,4 @@ function App() {
 }
 
 export default App;
+
