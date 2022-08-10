@@ -5,11 +5,12 @@ function App() {
   const [articles, setArticles] = useState([]);
 
   async function getArticles() {
-    const response = await fetch("https://hn.algolia.com/api/v1/search?query=story");
+    const response = await fetch(
+      "https://hn.algolia.com/api/v1/search?query=..."
+    );
     const data = await response.json();
 
-    setArticles(data.results);
-    
+    setArticles(data.hits);
   }
 
   useEffect(() => {
@@ -29,9 +30,26 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        Search Hacker News
+        <input placeholder="Search stories by title, url or author"></input>
+      </header>
       <ul>
         {articles.map((article, index) => (
-          <li className="article" key={article.id.value + index}></li>
+          <articles className="stories">
+            <div className="story-container">
+              <div className="story-title">
+                <span>{article.title}</span>
+                <a>{article.url}</a>
+              </div>
+              <div className="story-data">
+                <span>{article.points}</span>
+                <span>{article.author}</span>
+                <span>{article.num_comments}</span>
+                <span>{article.created_at}</span>
+              </div>
+            </div>
+          </articles>
         ))}
       </ul>
     </div>
