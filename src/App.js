@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Header from "./components/header";
 
 function App() {
   const [articles, setArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   async function getArticles() {
     const response = await fetch(
@@ -30,25 +32,66 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <span className="Title">Search Hacker News</span>
+        <input
+          placeholder="Search stories by title, url or author"
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span className="settingsSpan">Settings</span>
+      </header>
       <ul>
-        {articles.map((article, index) => (
-          <articles className="stories">
-            <div className="story-container">
-              <div className="story-title">
-                <span>{article.title}</span>
-                <a>
-                  {article.url}
-                  </a>
+        {/* <input
+          type="text"
+          placeholder="search"
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        /> */}
+        {articles
+          .filter((article) => {
+            if (searchTerm == "") {
+              return article;
+            } else if (
+              article.title
+                .toLowerCase()
+                .includes(searchTerm.toLocaleLowerCase())
+            ) {
+              return article;
+            }
+          })
+          .map((article, index) => (
+            <articles className="stories">
+              <div className="story-container">
+                <div className="story-title">
+                  <span>{article.title}</span>
+                  <a>{article.url}</a>
+                </div>
+                <div className="story-data">
+                  <span>{article.points}</span>
+                  <span>{article.author}</span>
+                  <span>{article.num_comments}</span>
+                  <span>{article.created_at}</span>
+                </div>
               </div>
-              <div className="story-data">
-                <span>{article.points}</span>
-                <span>{article.author}</span>
-                <span>{article.num_comments}</span>
-                <span>{article.created_at}</span>
-              </div>
-            </div>
-          </articles>
-        ))}
+            </articles>
+          ))}
       </ul>
     </div>
   );
