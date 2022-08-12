@@ -56,6 +56,23 @@ function App() {
         </svg>
         <span className="settingsSpan">Settings</span>
       </header>
+      <select>
+        <option>All</option>
+        <option>Stories</option>
+        <option>Comments</option>
+      </select>
+      <select>
+        <option>Popurlity</option>
+        <option>Date</option>
+      </select>
+      <select>
+        <option>All Time</option>
+        <option>Last 24h</option>
+        <option>Past Week</option>
+        <option>Past Month</option>
+        <option>Past Year</option>
+        <option>Custome Range</option>
+      </select>
       <ul>
         {/* <input
           type="text"
