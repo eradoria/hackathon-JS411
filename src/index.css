@@ -1,9 +1,9 @@
 body {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 code {
@@ -56,8 +56,10 @@ ul {
 }
 
 header {
-  padding: 10px;
-  height: 60px;
+  font-family: Verdana,Geneva,sans-serif;
+  width: 100%;
+  padding: 8px;
+  height: auto;
   display: flex;
   align-items: center;
   background: #ff742b;
@@ -78,3 +80,22 @@ input {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.75);
 }
+.titleLogo {
+  display: flex;
+  flex: 1 0 180px;
+  max-width: 180px;
+  word-wrap: break-word;
+  align-items: center;
+}
+.Title {
+  font-size: 18px;
+  display: flex;
+  margin-right: 6px;
+}
+
+.hLogo {
+  margin-right: 8px;
+  height: 48px;
+  width: 48px;
+}
+
