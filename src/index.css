@@ -1,9 +1,12 @@
+
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
+  width: auto;
+  
 }
 
 code {
@@ -99,3 +102,7 @@ input {
   width: 48px;
 }
 
+svg {
+  height: 24px;
+  width: 24px;
+}

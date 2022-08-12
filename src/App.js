@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/header";
-import HackerNewsLogo from "./HackerNewsLogo.jpeg"
+import HackerNewsLogo from "./HackerNewsLogo.jpeg";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -34,15 +34,22 @@ function App() {
   return (
     <div className="App">
       <header>
-      <div className="titleLogo">
-      <img className="hLogo" src={HackerNewsLogo} alt="H" width="50" height="50"></img>
-      <span className="Header Title">
-      Search
-      <br/>
-      Hacker News
-        </span>
+        <div className="titleLogo">
+          <img
+            className="hLogo"
+            src={HackerNewsLogo}
+            alt="H"
+            width="50"
+            height="50"
+          ></img>
+          <span className="Header Title">
+            Search
+            <br />
+            Hacker News
+          </span>
         </div>
-        <input className="searchInput"
+        <input
+          className="searchInput"
           placeholder="Search stories by title, url or author"
           onChange={(e) => {
             setSearchTerm(e.target.value);
