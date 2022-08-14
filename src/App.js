@@ -5,33 +5,35 @@ import Header from "./components/header";
 function App() {
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("");
 
+  
   async function getArticles() {
     const response = await fetch(
       "https://hn.algolia.com/api/v1/search?query=..."
-    );
-    const data = await response.json();
-
-    setArticles(data.hits);
-  }
-
-  useEffect(() => {
-    console.log("Mounted");
-    getArticles();
-  }, []);
-
-  useEffect(() => {
-    console.log("updated");
-    console.log(articles);
-  }, [articles]);
-
-  // const handleClick = () => {
-  //   console.log("Clicked");
-  //   setIsHidden(!isHidden);
-  // };
-
-  return (
-    <div className="App">
+      );
+      const data = await response.json();
+      
+      setArticles(data.hits);
+    }
+    
+    useEffect(() => {
+      console.log("Mounted");
+      getArticles();
+    }, []);
+    
+    useEffect(() => {
+      console.log("updated");
+      console.log(articles);
+    }, [articles]);
+    
+    function handleFilter(e) {
+      let { value } = e.target;
+      // console.log({ value });
+      setFilter({ value });
+    }
+    return (
+      <div className="App">
       <header>
         <span className="Title">Search Hacker News</span>
         <input
@@ -60,21 +62,23 @@ function App() {
       {/* ///////////////////////////////////////////Search-Bar////////////////////////////////// */}
       <div className="search-bar">
         <p>Search</p>
-        <select>
-          <option>All</option>
-          <option>Stories</option>
-          <option>Comments</option>
+        <select onChange={handleFilter}>
+          <option value="all">All</option>
+          <option value="story">Stories</option>
+          <option value="comment">Comments</option>
         </select>
+        <p>by</p>
         <select>
-          <option>Popurlity</option>
-          <option>Date</option>
+          <option value="popularity">Popularity</option>
+          <option value="Date">Date</option>
         </select>
+        <p>from</p>
         <select>
-          <option>All Time</option>
-          <option>Last 24h</option>
-          <option>Past Week</option>
-          <option>Past Month</option>
-          <option>Past Year</option>
+          <option value="all">All Time</option>
+          <option value="last24h">Last 24h</option>
+          <option value="pastWeek">Past Week</option>
+          <option value="pastMonth">Past Month</option>
+          <option value="pastYear">Past Year</option>
           <option>Custome Range</option>
         </select>
       </div>
