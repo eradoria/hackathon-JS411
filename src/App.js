@@ -6,6 +6,7 @@ import HackerNewsLogo from "./HackerNewsLogo.jpeg";
 function App() {
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("");
 
   async function getArticles() {
     const response = await fetch(
@@ -26,11 +27,11 @@ function App() {
     console.log(articles);
   }, [articles]);
 
-  // const handleClick = () => {
-  //   console.log("Clicked");
-  //   setIsHidden(!isHidden);
-  // };
-
+  function handleFilter(e) {
+    let { value } = e.target;
+    // console.log({ value });
+    setFilter({ value });
+  }
   return (
     <div className="App">
       <header>
@@ -48,13 +49,13 @@ function App() {
             Hacker News
           </span>
         </div>
-        <input
+        <input>
           className="searchInput"
           placeholder="Search stories by title, url or author"
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
-        />
+        </input>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -71,6 +72,32 @@ function App() {
         </svg>
         <span className="settingsSpan">Settings</span>
       </header>
+
+      {/* ///////////////////////////////////////////Search-Bar////////////////////////////////// */}
+      <div className="search-bar">
+        <p>Search</p>
+        <select onChange={handleFilter}>
+          <option value="all">All</option>
+          <option value="story">Stories</option>
+          <option value="comment">Comments</option>
+        </select>
+        <p>by</p>
+        <select>
+          <option value="popularity">Popularity</option>
+          <option value="Date">Date</option>
+        </select>
+        <p>for</p>
+        <select>
+          <option value="all">All Time</option>
+          <option value="last24h">Last 24h</option>
+          <option value="pastWeek">Past Week</option>
+          <option value="pastMonth">Past Month</option>
+          <option value="pastYear">Past Year</option>
+          <option>Custome Range</option>
+        </select>
+      </div>
+
+      {/* ////////////////////////////////////////////Results-Page/////////////////////////////////// */}
       <ul>
         {/* <input
           type="text"

@@ -1,3 +1,4 @@
+/* MAIN PAGE */
 
 body {
   margin: 0;
@@ -6,7 +7,6 @@ body {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   width: auto;
-  
 }
 
 code {
@@ -17,6 +17,8 @@ code {
 ul {
   display: flex;
   flex-direction: column;
+  margin-top: 4px;
+  padding: 0px;
 }
 
 .stories {
@@ -41,7 +43,8 @@ ul {
   display: flex;
   flex-direction: row;
   margin: 4px;
-  font-style:normal;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .stories .story-title a {
@@ -58,8 +61,10 @@ ul {
   padding-left: 16px;
 }
 
+/* HEADER */
+
 header {
-  font-family: Verdana,Geneva,sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   width: 100%;
   padding: 8px;
   height: auto;
@@ -73,6 +78,8 @@ header {
 }
 
 input {
+  margin-left: 12px;
+  margin-right: 20px;
   border-radius: 0;
   border: none;
   height: 100%;
@@ -83,6 +90,7 @@ input {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.75);
 }
+
 .titleLogo {
   display: flex;
   flex: 1 0 180px;
@@ -103,6 +111,44 @@ input {
 }
 
 svg {
-  height: 24px;
-  width: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 34px;
+  width: 34px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 42px;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select {
+  display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 15px;
+    border: 1px solid #c3c3c3;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    color: #5c5c5c;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90px;
+}
+
+.search-bar p {
+  margin-left: 4px;
+}
+
+.searchInput {
+  font-size: 16px;
+  
 }
