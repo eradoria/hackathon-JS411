@@ -10,10 +10,10 @@ function App() {
   
   async function getArticles() {
     const response = await fetch(
-      "https://hn.algolia.com/api/v1/search?query=..."
+      `https://hn.algolia.com/api/v1/search?query=${filter}` 
       );
       const data = await response.json();
-      
+      console.log("fire")
       setArticles(data.hits);
     }
     
@@ -22,6 +22,12 @@ function App() {
       getArticles();
     }, []);
     
+    
+    useEffect(() => {
+      console.log("Re-Mounted");
+      getArticles();
+    }, [filter]);
+    
     useEffect(() => {
       console.log("updated");
       console.log(articles);
@@ -29,7 +35,7 @@ function App() {
     
     function handleFilter(e) {
       let { value } = e.target;
-      // console.log({ value });
+      console.log({ value });
       setFilter({ value });
     }
     return (
