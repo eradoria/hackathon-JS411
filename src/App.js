@@ -108,7 +108,7 @@ function App() {
         /> */}
         {articles
           .filter((article) => {
-            if (searchTerm == "") {
+            if (searchTerm === "") {
               return article;
             } else if (
               article.title
