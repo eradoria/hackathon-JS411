@@ -26,6 +26,7 @@ function App() {
     useEffect(() => {
       console.log("Re-Mounted");
       getArticles();
+      console.log("filter",filter)
     }, [filter]);
     
     useEffect(() => {
@@ -36,7 +37,7 @@ function App() {
     function handleFilter(e) {
       let { value } = e.target;
       console.log({ value });
-      setFilter({ value });
+      setFilter( value );
     }
     return (
       <div className="App">
