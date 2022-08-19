@@ -34,7 +34,11 @@ function App() {
     
     function handleFilter(e) {
       let { value } = e.target;
+
       console.log({ value });
+
+      console.log( value );
+
       setFilter( value );
     }
     return (
