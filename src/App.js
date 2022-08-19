@@ -35,11 +35,13 @@ function App() {
     function handleFilter(e) {
       let { value } = e.target;
       console.log({ value });
-      setFilter({ value });
+      setFilter( value );
     }
     return (
       <div className="App">
       <header>
+      <img className="hackerIcon" src="//d1sz9gun5ag95e.cloudfront.net/packs/media/images/logo-hn-search-a822432b.png"></img>
+        
         <span className="Title">Search Hacker News</span>
         <input
           placeholder="Search stories by title, url or author"

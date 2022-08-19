@@ -1,5 +1,6 @@
 body {
-  width: 100%;
+  margin: auto;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +59,7 @@ ul {
 }
 
 header {
-  width: 100%;
+  width: auto;
   padding: 10px;
   height: 60px;
   display: flex;
@@ -93,4 +94,9 @@ select {
   height: 25px;
   width: auto;
   text-align: center;
+}
+
+.hackerIcon {
+  width: 48px;
+  height: 48px;
 }
