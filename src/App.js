@@ -34,8 +34,8 @@ function App() {
     
     function handleFilter(e) {
       let { value } = e.target;
-      console.log({ value });
-      setFilter({ value });
+      console.log( value );
+      setFilter( value );
     }
     return (
       <div className="App">
