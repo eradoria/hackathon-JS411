@@ -7,7 +7,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("");
 
-  
   async function getArticles() {
     const response = await fetch(
       `https://hn.algolia.com/api/v1/search?query=${filter}` 
@@ -26,7 +25,6 @@ function App() {
     useEffect(() => {
       console.log("Re-Mounted");
       getArticles();
-      console.log("filter",filter)
     }, [filter]);
     
     useEffect(() => {
@@ -37,7 +35,7 @@ function App() {
     function handleFilter(e) {
       let { value } = e.target;
       console.log({ value });
-      setFilter( value );
+      setFilter({ value });
     }
     return (
       <div className="App">
