@@ -7,39 +7,37 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("");
 
-  
   async function getArticles() {
     const response = await fetch(
-      `https://hn.algolia.com/api/v1/search?query=${filter}` 
-      );
-      const data = await response.json();
-      console.log("fire")
-      setArticles(data.hits);
-    }
-    
-    useEffect(() => {
-      console.log("Mounted");
-      getArticles();
-    }, []);
-    
-    
-    useEffect(() => {
-      console.log("Re-Mounted");
-      getArticles();
-    }, [filter]);
-    
-    useEffect(() => {
-      console.log("updated");
-      console.log(articles);
-    }, [articles]);
-    
-    function handleFilter(e) {
-      let { value } = e.target;
-      console.log({ value });
-      setFilter({ value });
-    }
-    return (
-      <div className="App">
+      `https://hn.algolia.com/api/v1/search?query=${filter}`
+    );
+    const data = await response.json();
+    console.log("fire");
+    setArticles(data.hits);
+  }
+
+  useEffect(() => {
+    console.log("Mounted");
+    getArticles();
+  }, []);
+
+  useEffect(() => {
+    console.log("Re-Mounted");
+    getArticles();
+  }, [filter]);
+
+  useEffect(() => {
+    console.log("updated");
+    console.log(articles);
+  }, [articles]);
+
+  function handleFilter(e) {
+    let { value } = e.target;
+    console.log({ value });
+    setFilter( value );
+  }
+  return (
+    <div className="App">
       <header>
         <span className="Title">Search Hacker News</span>
         <input
